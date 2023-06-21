@@ -28,18 +28,47 @@ const repetirString = (palabra2, numero) => {
 };
 
 
-let divisor = 0;
-const esPrimo = (num) => {
-    divisor++;
-    if (num % divisor == 0) { return true }
-    else { return false }
+let esPrimo = num1 => {
+    if (num1 <= 1) {
+        console.log(num1 + " no es primo");
+        return false;
+    }
+    for (let i = 2; i < num1; i++) {
+        if (num1 % i === 0) {
+            console.log("no es primo");
+            return false;
+        }
+    }
+    console.log("es primo");
+    return true;
 }
+
+
 //mezclar arrays y funciones//
 const ordenarArray = (listanumeros=[]) => {
 return listanumeros.sort();
 }
 let obtenerPares = (array) =>  
 { return array.filter(numerito => numerito % 2 === 0)}
+
+
+const pintarArray = (array) => {
+
+    return array.join(", ");
+    } 
+
+    
+    
+const arrayMapi = (array, funk) => array.map(afectado => funk(afectado));
+
+  var arrayNuevo=[];
+  const eliminarDuplicados= (array) => {
+    array.forEach(element => {
+        const encontrado=arrayNuevo.find(cosa=>cosa==element)
+        if (!encontrado) {arrayNuevo.push(element)}
+    });
+  }
+  
 
 //Iteraciones 🏰 proyecto 🏰//
 let arrayNumerosNeg = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
@@ -68,5 +97,9 @@ const ordenarArray2 = (listanumeros=[]) => {
 const obtenerImpares = (array) =>  
 { return array.filter(numerito => numerito % 2 === 1)};
 
+
 const sumarArray = (array) => 
-{return array.reduce((accumulator, currentValue))}
+
+    { return array.reduce((primerelemento, restoelementos) => primerelemento + restoelementos)};
+     const multiplicarArray = (array) => 
+     { return array.reduce((primerelemento, restoelementos) => primerelemento * restoelementos)};
